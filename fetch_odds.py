@@ -48,7 +48,9 @@ NAME_MAP = {
     "Côte d'Ivoire": "Ivory Coast",
     "Congo DR": "DR Congo",
     "Bosnia and Herzegovina": "Bosnia-Herz.",
+    "Bosnia & Herzegovina": "Bosnia-Herz.",
     "Cape Verde Islands": "Cape Verde",
+    "Czech Republic": "Czechia",
 }
 
 
