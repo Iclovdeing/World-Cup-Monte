@@ -1,21 +1,3 @@
-# .github/workflows/deploy.yml
-#
-# Builds the Vite/React simulator and deploys it to GitHub Pages.
-# Runs entirely on GitHub's servers — nothing to install or build on your phone.
-#
-# One-time setup (do this once, in the GitHub web/mobile UI):
-#   1. Repo Settings -> Pages -> "Build and deployment" -> Source: "GitHub Actions"
-#   2. Make sure these files exist at the repo root (see file list below)
-#   3. Push to main -> this workflow builds + deploys automatically
-#   4. Site goes live at: https://iclovdeing.github.io/World-Cup-Monte/
-#
-# Required files at repo root:
-#   package.json
-#   vite.config.js
-#   index.html
-#   src/main.jsx
-#   src/App.jsx          <- this is your wc2026-simulator.jsx, renamed/placed here
-
 name: Deploy WC26 Simulator to Pages
 
 "on":
@@ -65,36 +47,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
-      - name: Upload build artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        
