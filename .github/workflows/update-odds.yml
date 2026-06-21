@@ -1,0 +1,53 @@
+# .github/workflows/update-odds.yml
+#
+# Runs every 20 minutes. The results-gate check itself is FREE (no API key,
+# public GitHub-hosted JSON). It only spends a The Odds API call when a new
+# full-time result has appeared since the last run — so your quota tracks
+# actual match activity, not the clock.
+#
+# Expected usage during WC26 group stage (~4 matches/day):
+#   ~4-7 odds calls/day -> well under the 500/month free tier.
+#
+# Setup:
+#   1. File at: .github/workflows/update-odds.yml
+#   2. fetch_odds.py at repo root
+#   3. Add repo secret ODDS_API_KEY (Settings -> Secrets and variables -> Actions)
+#   4. Push. Check the Actions tab.
+#   5. Artifact reads:
+#      https://raw.githubusercontent.com/<you>/<repo>/main/odds.json
+
+name: Update WC26 Odds (results-gated)
+
+on:
+  schedule:
+    - cron: "*/20 * * * *"   # every 20 minutes, all day — the gate keeps this cheap
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  check-and-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check results & fetch odds if needed
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python fetch_odds.py
+
+      - name: Commit changes (odds.json + state.json) if any
+        run: |
+          git config user.name "odds-bot"
+          git config user.email "odds-bot@users.noreply.github.com"
+          git add odds.json state.json 2>/dev/null || true
+          git diff --quiet --cached || git commit -m "Update odds after new result [skip ci]"
+          git push
+          
