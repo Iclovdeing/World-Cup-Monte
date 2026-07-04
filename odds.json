@@ -1,23 +1,22 @@
 {
-  "updated_at": "2026-07-04T19:52:00.211984+00:00",
+  "updated_at": "2026-07-04T23:16:44.410726+00:00",
   "source": "the-odds-api.com",
   "num_bookmakers": 3,
   "trigger": "new_match_result",
   "teams": {
-    "France": 32.023,
-    "Argentina": 16.792,
-    "Spain": 12.921,
-    "England": 7.881,
-    "Brazil": 6.888,
-    "Portugal": 6.22,
-    "Morocco": 3.282,
-    "Colombia": 3.278,
-    "Mexico": 3.029,
-    "United States": 2.539,
-    "Norway": 2.025,
-    "Belgium": 1.627,
-    "Switzerland": 1.019,
-    "Egypt": 0.272,
-    "Paraguay": 0.207
+    "France": 33.777,
+    "Argentina": 15.936,
+    "Spain": 13.096,
+    "England": 7.792,
+    "Brazil": 6.814,
+    "Portugal": 6.145,
+    "Colombia": 3.244,
+    "Mexico": 2.999,
+    "Morocco": 2.874,
+    "United States": 2.508,
+    "Norway": 1.999,
+    "Belgium": 1.542,
+    "Switzerland": 1.005,
+    "Egypt": 0.267
   }
 }
