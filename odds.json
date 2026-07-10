@@ -1,15 +1,14 @@
 {
-  "updated_at": "2026-07-09T22:37:51.282137+00:00",
+  "updated_at": "2026-07-10T22:03:25.348101+00:00",
   "source": "the-odds-api.com",
   "num_bookmakers": 3,
   "trigger": "new_match_result",
   "teams": {
-    "France": 38.319,
-    "Argentina": 17.485,
-    "Spain": 17.485,
-    "England": 16.341,
-    "Norway": 5.655,
-    "Belgium": 2.421,
-    "Switzerland": 2.295
+    "France": 37.202,
+    "Spain": 22.156,
+    "Argentina": 17.212,
+    "England": 15.94,
+    "Norway": 5.536,
+    "Switzerland": 1.954
   }
 }
