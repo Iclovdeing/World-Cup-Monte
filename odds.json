@@ -1,12 +1,11 @@
 {
-  "updated_at": "2026-07-12T06:01:58.110942+00:00",
+  "updated_at": "2026-07-14T22:16:28.176284+00:00",
   "source": "the-odds-api.com",
   "num_bookmakers": 3,
   "trigger": "new_match_result",
   "teams": {
-    "France": 37.531,
-    "Spain": 22.17,
-    "England": 21.582,
-    "Argentina": 18.718
+    "Spain": 56.698,
+    "England": 24.509,
+    "Argentina": 18.793
   }
 }
